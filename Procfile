@@ -1,0 +1,1 @@
+web: gunicorn bigbuycsvs.wsgi:application --log-file -
