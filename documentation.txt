@@ -29,5 +29,6 @@
         7- allow port to communicate
             -> sudo ufw allow 8000
         8- run django app
+            -> python manage.py runserver 0.0.0.0:8000
 
 
