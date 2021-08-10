@@ -37,17 +37,17 @@
         <div style="margin: 2% 0% 2% 0%;">
           &nbsp; &nbsp; &nbsp; &nbsp; Link for Products.csv:
           <input id="ProductsFilePath" style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4P}}" placeholder="No Links yet! Try again after sometime." disabled>
-          <button onclick="copy('ProductsFilePath')">Copy Link</button>
+          <button onclick="copyText('ProductsFilePath')">Copy Link</button>
         </div>
         <div style="margin: 2% 0% 2% 0%;">
           &nbsp; &nbsp; &nbsp; &nbsp; Link for ProductsStocks.csv:
           <input id="ProductsStocksFilePath" style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4PS}}" placeholder="No Links yet! Try again after sometime." disabled>
-          <button onclick="copy('ProductsStocksFilePath')">Copy Link</button>
+          <button onclick="copyText('ProductsStocksFilePath')">Copy Link</button>
         </div>
         <div style="margin: 2% 0% 2% 0%;">
           &nbsp; &nbsp; &nbsp; &nbsp; Link for ProductsFull.csv:
           <input id="ProductsFullFilePath" style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4PF}}" placeholder="No Links yet! Try again after sometime." disabled>
-          <button onclick="copy('ProductsFullFilePath')">Copy Link</button>
+          <button onclick="copyText('ProductsFullFilePath')">Copy Link</button>
         </div>
       </div>
 
@@ -64,14 +64,12 @@
 
 <script>
 
-  function copy(element_id){
-    var text = document.getElementById(element_id).value;
-    navigator.clipboard.writeText(text).then(function() {
-      alert('copied text successfully: \n' + text);
-    }, function(err) {
-      alert('could not copy: \n' + err);
-    });
+  function copyText(elem_id) {
+    const cb = navigator.clipboard;
+    const text = document.getElementById(elem_id).value;
+    cb.writeText(text).then(() => alert('Text copied'));
   }
+
 
 </script>
 
