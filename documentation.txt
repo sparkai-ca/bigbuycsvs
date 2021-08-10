@@ -30,5 +30,11 @@
             -> sudo ufw allow 8000
         8- run django app
             -> python manage.py runserver 0.0.0.0:8000
+        9- run django app on pm2 server
+            -> pm2 start "cd /root/bigbuycsvs/ && /root/anaconda3/envs/bigbuy_env1/bin/python manage.py runserver 0.0.0.0:8000"
+        10- now schedule the csv processor script
+            - for that we will use crontab, which is stable and efficient
+            -> crontab -e
+            ->
 
 

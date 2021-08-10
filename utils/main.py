@@ -209,16 +209,17 @@ def process_csvs(drive):
         # Remove both files from system
         try:
             os.remove('products.csv')
-        except:
+        except Exception as ex:
+            print(ex)
             pass
         try:
             os.remove('products_stocks.csv')
-        except:
-            pass
+        except Exception as ex:
+            print(ex)
         try:
             os.remove('products_full.csv')
-        except:
-            pass
+        except Exception as ex:
+            print(ex)
 
         print("Processing Done!")
 
@@ -228,14 +229,32 @@ if __name__ == '__main__':
     Main handler function
     '''
 
+    drive = None
+
     print('wait is over ...')
+
     # Google drive authentication
     try:
         G_Auth = GoogleAuth()
-        G_Auth.LocalWebserverAuth()
+        # Try to load saved client credentials
+        G_Auth.LoadCredentialsFile("./utils/credentials.json")
+        if G_Auth.credentials is None:
+            # Authenticate if they're not there
+            G_Auth.LocalWebserverAuth()
+        elif G_Auth.access_token_expired:
+            # Refresh them if expired
+            G_Auth.Refresh()
+        else:
+            # Initialize the saved creds
+            G_Auth.Authorize()
+        # Save the current credentials to a file
+        G_Auth.SaveCredentialsFile(
+            "./utils/credentials.json")
+
         drive = GoogleDrive(G_Auth)
 
-    except:
+    except Exception as ex:
+        print(ex)
         print("Error authenticating google cloud api")
         exit()
 
