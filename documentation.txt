@@ -6,13 +6,28 @@
     pass: FPt+Fny+iT%mM9F
     steps:
         1- install anaconda
-            i)-    cd /tmp
-            ii)-   curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
-            iii)-  sha256sum Anaconda3-2019.03-Linux-x86_64.sh
-            iv)-   bash Anaconda3-2019.03-Linux-x86_64.sh
-            v)-    yes, enter
-            vi)-   cd
-            vii)-  source anaconda3/bin/activate
-            viii)- conda config --set auto_activate_base true
-        2-
+            -> cd /tmp
+            -> curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+            -> sha256sum Anaconda3-2019.03-Linux-x86_64.sh
+            -> bash Anaconda3-2019.03-Linux-x86_64.sh
+            -> yes, enter
+            -> cd
+            -> source anaconda3/bin/activate
+            -> conda config --set auto_activate_base true
+        2- create anaconda environment for django app
+            -> conda create -n bigbuy_env1 python=3
+        3- activate environment:
+            -> conda activate bigbuy_env1
+        4- install requirements for django app
+            -> cd /root/bigbuycsvs
+            -> pip install -r requirements.txt
+        5- install npm
+            -> sudo apt update
+            -> sudo apt install npm
+        6- install pm2 using npm
+            -> npm install pm2 -g
+        7- allow port to communicate
+            -> sudo ufw allow 8000
+        8- run django app
+
 
