@@ -35,6 +35,10 @@
         10- now schedule the csv processor script
             - for that we will use crontab, which is stable and efficient
             -> crontab -e
-            ->
+            -> paste the below cammand and save the cronjob
+                =>> */30 */1 * * * cd /root/bigbuycsvs/ && /root/anaconda3/envs/bigbuy_env1/bin/python utils/main.py
+                => it means its scheduled after every 1 hour and 30 minutes, you can change it anytime by just changing the values and saving it
+
+
 
 

@@ -16,11 +16,11 @@ def index(request):
             links_ = json.load(fl)
             print(links_)
         if links_:
-            print('P:', links_.products_link, '\nPS:',links_.products_sotcks_link, '\nPF:', links_.products_full_link)
+            print('P:', links_['products_link'], '\nPS:',links_['products_sotcks_link'], '\nPF:', links_['products_full_link'])
 
             # Getting the links of files
-            value4PS = links_.products_sotcks_link
-            value4P = links_.products_link
-            value4PF = links_.products_full_link
+            value4P = links_['products_link']
+            value4PS = links_['products_sotcks_link']
+            value4PF = links_['products_full_link']
         return render(request, "index.html", {'key4P':value4P, 'key4PS':value4PS, 'key4PF':value4PF})
         

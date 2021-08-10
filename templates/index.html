@@ -36,15 +36,18 @@
       <div id='linksfields' style="margin: 2% 0% 2% 0%;">
         <div style="margin: 2% 0% 2% 0%;">
           &nbsp; &nbsp; &nbsp; &nbsp; Link for Products.csv:
-          <input style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4P}}" placeholder="No Links yet! Try again after sometime." disabled>
+          <input id="ProductsFilePath" style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4P}}" placeholder="No Links yet! Try again after sometime." disabled>
+          <button onclick="copy('ProductsFilePath')">Copy Link</button>
         </div>
         <div style="margin: 2% 0% 2% 0%;">
           &nbsp; &nbsp; &nbsp; &nbsp; Link for ProductsStocks.csv:
-          <input style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4PS}}" placeholder="No Links yet! Try again after sometime." disabled>
+          <input id="ProductsStocksFilePath" style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4PS}}" placeholder="No Links yet! Try again after sometime." disabled>
+          <button onclick="copy('ProductsStocksFilePath')">Copy Link</button>
         </div>
         <div style="margin: 2% 0% 2% 0%;">
           &nbsp; &nbsp; &nbsp; &nbsp; Link for ProductsFull.csv:
-          <input style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4PF}}" placeholder="No Links yet! Try again after sometime." disabled>
+          <input id="ProductsFullFilePath" style="margin: 0% 0% 0% 0%; color:black; border-style: solid; border-color: darkblue; border-width: 10%; border-radius: 10%;" type="text" value="{{key4PF}}" placeholder="No Links yet! Try again after sometime." disabled>
+          <button onclick="copy('ProductsFullFilePath')">Copy Link</button>
         </div>
       </div>
 
@@ -59,11 +62,17 @@
   </div>
 </body>
 
-<!--onclick="myFunction()"-->
-<!--<script>-->
-<!--  function myFunction() {-->
-<!--    document.getElementById("linksfields").style.visibility='visible';-->
-<!--  }-->
-<!--</script>-->
+<script>
+
+  function copy(element_id){
+    var text = document.getElementById(element_id).value;
+    navigator.clipboard.writeText(text).then(function() {
+      alert('copied text: \n' + text);
+    }, function(err) {
+      console.error('Async: Could not copy text: ', err);
+    });
+  }
+
+</script>
 
 </html>
