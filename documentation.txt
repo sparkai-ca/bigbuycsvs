@@ -1,0 +1,18 @@
+1- credentials.json for google connection/authentication
+2- utils/config.py for adjusting configurations like sandbox api path, google drive folder id and columns to exclude
+3- new links will save in utils/links.json
+4- we are going to deploy app in virtual machine/server (digital ocean)
+    user: ssh root@161.35.158.228
+    pass: FPt+Fny+iT%mM9F
+    steps:
+        1- install anaconda
+            i)-    cd /tmp
+            ii)-   curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+            iii)-  sha256sum Anaconda3-2019.03-Linux-x86_64.sh
+            iv)-   bash Anaconda3-2019.03-Linux-x86_64.sh
+            v)-    yes, enter
+            vi)-   cd
+            vii)-  source anaconda3/bin/activate
+            viii)- conda config --set auto_activate_base true
+        2-
+
