@@ -67,9 +67,9 @@
   function copy(element_id){
     var text = document.getElementById(element_id).value;
     navigator.clipboard.writeText(text).then(function() {
-      alert('copied text: \n' + text);
+      alert('copied text successfully: \n' + text);
     }, function(err) {
-      console.error('Async: Could not copy text: ', err);
+      alert('could not copy: \n' + err);
     });
   }
 
